@@ -152,33 +152,33 @@ $(document).ready(function() {
 
 //questions which are contained in objects
 var question1 = {
-    q1: "What letter is Athletic?",
-    c1: ["A", "B", "C", "D", "E"],
-    a1: "A"
+  q1: "What letter is Athletic?",
+  c1: ["A", "B", "C", "D", "E"],
+  a1: "A"
 }
 
 var question2 = {
-    q2: "What letter is Bossy?",
-    c2: ["A", "B", "C", "D", "E"],
-    a2: "B"
+  q2: "What letter is Bossy?",
+  c2: ["A", "B", "C", "D", "E"],
+  a2: "B"
 }
 
 var question3 = {
-    q3: "What letter is Caring?",
-    c3: ["A", "B", "C", "D", "E"],
-    a3: "C"
+  q3: "What letter is Caring?",
+  c3: ["A", "B", "C", "D", "E"],
+  a3: "C"
 }
 
 var question4 = {
-    q3: "What letter is Daring?",
-    c3: ["A", "B", "C", "D", "E"],
-    a3: "D"
+  q3: "What letter is Daring?",
+  c3: ["A", "B", "C", "D", "E"],
+  a3: "D"
 }
 
 var question5 = {
-    q3: "What letter is Energetic?",
-    c3: ["A", "B", "C", "D", "E"],
-    a3: "E"
+  q3: "What letter is Energetic?",
+  c3: ["A", "B", "C", "D", "E"],
+  a3: "E"
 }
 
 //those objects are in an array
@@ -186,14 +186,16 @@ var quizQuestions = [question1, question2, question3, question4, question5];
 console.log(quizQuestions);
 
 
-//function to picks a random question from array....but also removes the question from array like HOUSE activity..
-function questionGenerator() {
-    var randomQuestion = [Math.floor(Math.random() * quizQuestions.length)];
-    return randomQuestion;
-}
-console.log("QUESTION: " + (questionGenerator()));
+//function to picks a random question from array of objects but also removes the question from array
 
-//function to displays the sselected question w the choices
+var questionGenerator = [Math.floor(Math.random() * quizQuestions.length)];
+console.log("questionGenerator PICKED: " + questionGenerator);
+
+
+//function to displays the selected question w the choices
+
+var outputQuestions = quizQuestions[questionGenerator];
+console.log(outputQuestions);
 
 //funtion to check the questions answer based on a value collected from a radio group
 
