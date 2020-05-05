@@ -12,6 +12,49 @@ $(document).ready(function() {
 
     //==========================================//
 
+    //questions which are contained in objects
+    var quizQuestions = {
+
+        quest1: {
+            question: "What letter is Athletic?",
+            choice: ["A", "B", "C", "D", "E"],
+            answer: "A"
+        },
+
+        quest2: {
+            question: "What letter is Bossy?",
+            choice: ["A2", "B2", "C2", "D2", "E2"],
+            answer: "B"
+        },
+
+        quest3: {
+            question: "What letter is Caring?",
+            choice: ["A", "B", "C", "D", "E"],
+            answer: "C"
+        },
+
+        quest4: {
+            question: "What letter is Daring?",
+            choice: ["A", "B", "C", "D", "E"],
+            answer: "D"
+        },
+
+        quest5: {
+            question: "What letter is Energetic?",
+            choice: ["A", "B", "C", "D", "E"],
+            answer: "E"
+        }
+
+    };
+
+    // console.log(questions.quest1.q1);
+    // console.log(questions.quest1.c1[0]);
+    // console.log(questions.quest1.c1[1]);
+    // console.log(questions.quest1.c1[2]);
+    // console.log(questions.quest1.c1[3]);
+    // console.log(questions.quest1.a1);
+
+
     // Collectes/Checks Radio Value //
 
     $(document).on("click", '.chkBtn', function() {
@@ -30,95 +73,110 @@ $(document).ready(function() {
         $("#question").remove();
         console.log("Restart Click Works");
 
+        // Confirms Start Click //
         var confirm = "Start Click Works";
         console.log(confirm);
 
-        $('#quizBox').append(`
-            <div class="container" id="question">
-                <p>Question 1 Goes here, How do i get data to return from a radio type input after the answer has been selected?</p>
-                <label><input type="radio" value="correct" name="questions"> answer1</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer1</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer1</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer1</label><br>
-                <p><input class="btn btn-primary submit1 chkBtn" type="button" value="Get Value"></p>
+        // This Deletes the Starting Content //
+        $("#start").remove();
+
+
+        $('#quizBox').html(`
+            <div class="questdiv" id="question">
+                <p class="quest"></p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" value="Rad0" checked>
+                    <label class="form-check-label rad0" for="question1"></label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" value="Rad0" checked>
+                    <label class="form-check-label rad1" for="question1"></label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" value="Rad0" checked>
+                    <label class="form-check-label rad2" for="question1"></label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="question1" value="Rad0" checked>
+                    <label class="form-check-label rad3" for="question1"></label>
+                </div><br>
+                <p class="subButton"><input class="btn btn-primary submit1 chkBtn" type="button" value="Get Value"></p>
             </div>
         `);
 
-        // This Deletes the Starting Content //
-        $("#start").remove();
+        $('.quest').html(quizQuestions.quest1.question);
+        $('.rad0').html(quizQuestions.quest1.choice[0]);
+        $('.rad1').html(quizQuestions.quest1.choice[1]);
+        $('.rad2').html(quizQuestions.quest1.choice[2]);
+        $('.rad3').html(quizQuestions.quest1.choice[3]);
 
     });
 
 
     // submit1-5 button will remove Question1-5 and add next Question //
     $(document).on("click", '.submit1', function() {
-        $("#question").remove();
+        $(".submit1").remove();
         console.log("Submit Button 1 Works");
 
-        $('#quizBox').append(`
-            <div class="container" id="question">
-                <p>Question 1 Goes here, How do i get data to return from a radio type input after the answer has been selected?</p>
-                <label><input type="radio" value="correct" name="questions"> answer2</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer2</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer2</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer2</label><br>
-                <p><input class="btn btn-primary submit2 chkBtn" type="button" value="Get Value"></p>
-            </div>
+        $('.subButton').html(`
+            <input class="btn btn-primary submit2 chkBtn" type="button" value="Get Value">
         `);
 
+        $('.quest').html(quizQuestions.quest2.question);
+        $('.rad0').html(quizQuestions.quest2.choice[0]);
+        $('.rad1').html(quizQuestions.quest2.choice[1]);
+        $('.rad2').html(quizQuestions.quest2.choice[2]);
+        $('.rad3').html(quizQuestions.quest2.choice[3]);
     });
 
 
     $(document).on("click", '.submit2', function() {
-        $("#question").remove();
+        $(".submit2").remove();
         console.log("Submit Button 2 Works");
 
-        $('#quizBox').append(`
-            <div class="container" id="question">
-                <p>Question 1 Goes here, How do i get data to return from a radio type input after the answer has been selected?</p>
-                <label><input type="radio" value="correct" name="questions"> answer3</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer3</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer3</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer3</label><br>
-                <p><input class="btn btn-primary submit3 chkBtn" type="button" value="Get Value"></p>
-            </div>
+        $('.subButton').html(`
+            <input class="btn btn-primary submit3 chkBtn" type="button" value="Get Value">
         `);
+
+        $('.quest').html(quizQuestions.quest3.question);
+        $('.rad0').html(quizQuestions.quest3.choice[0]);
+        $('.rad1').html(quizQuestions.quest3.choice[1]);
+        $('.rad2').html(quizQuestions.quest3.choice[2]);
+        $('.rad3').html(quizQuestions.quest3.choice[3]);
 
     });
 
 
     $(document).on("click", '.submit3', function() {
-        $("#question").remove();
+        $(".submit3").remove();
         console.log("Submit Button 3 Works");
 
-        $('#quizBox').append(`
-            <div class="container" id="question">
-                <p>Question 1 Goes here, How do i get data to return from a radio type input after the answer has been selected?</p>
-                <label><input type="radio" value="correct" name="questions"> answer4</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer4</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer4</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer4</label><br>
-                <p><input class="btn btn-primary submit4 chkBtn" type="button" value="Get Value"></p>
-            </div>
+        $('.subButton').html(`
+            <input class="btn btn-primary submit4 chkBtn" type="button" value="Get Value">
         `);
+
+        $('.quest').html(quizQuestions.quest4.question);
+        $('.rad0').html(quizQuestions.quest4.choice[0]);
+        $('.rad1').html(quizQuestions.quest4.choice[1]);
+        $('.rad2').html(quizQuestions.quest4.choice[2]);
+        $('.rad3').html(quizQuestions.quest4.choice[3]);
 
     });
 
 
     $(document).on("click", '.submit4', function() {
-        $("#question").remove();
+        $(".submit4").remove();
         console.log("Submit Button 4 Works");
 
-        $('#quizBox').append(`
-            <div class="container" id="question">
-                <p>Question 1 Goes here, How do i get data to return from a radio type input after the answer has been selected?</p>
-                <label><input type="radio" value="correct" name="questions"> answer5</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer5</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer5</label><br>
-                <label><input type="radio" value="wrong" name="questions"> answer5</label><br>
-                <p><input class="btn btn-primary submit5 chkBtn" type="button" value="Get Value"></p>
-            </div>
+        $('.subButton').html(`
+            <input class="btn btn-primary submit5 chkBtn" type="button" value="Get Value">
         `);
+
+        $('.quest').html(quizQuestions.quest5.question);
+        $('.rad0').html(quizQuestions.quest5.choice[0]);
+        $('.rad1').html(quizQuestions.quest5.choice[1]);
+        $('.rad2').html(quizQuestions.quest5.choice[2]);
+        $('.rad3').html(quizQuestions.quest5.choice[3]);
 
     });
 
@@ -128,7 +186,7 @@ $(document).ready(function() {
         $("#question").remove();
         console.log("Submit Button 5 Works");
 
-        $('#quizBox').append(`
+        $('#quizBox').html(`
             <div class="container" id="question">
                 <h2>RESULTS</h2><br>
                 <div class="card">
@@ -150,52 +208,22 @@ $(document).ready(function() {
 
 
 
-//questions which are contained in objects
-var question1 = {
-  q1: "What letter is Athletic?",
-  c1: ["A", "B", "C", "D", "E"],
-  a1: "A"
-}
-
-var question2 = {
-  q2: "What letter is Bossy?",
-  c2: ["A", "B", "C", "D", "E"],
-  a2: "B"
-}
-
-var question3 = {
-  q3: "What letter is Caring?",
-  c3: ["A", "B", "C", "D", "E"],
-  a3: "C"
-}
-
-var question4 = {
-  q3: "What letter is Daring?",
-  c3: ["A", "B", "C", "D", "E"],
-  a3: "D"
-}
-
-var question5 = {
-  q3: "What letter is Energetic?",
-  c3: ["A", "B", "C", "D", "E"],
-  a3: "E"
-}
-
 //those objects are in an array
-var quizQuestions = [question1, question2, question3, question4, question5];
-console.log(quizQuestions);
+// var quizQuestions = [questions];
+// console.log(quizQuestions);
 
 
 //function to picks a random question from array of objects but also removes the question from array
 
-var questionGenerator = [Math.floor(Math.random() * quizQuestions.length)];
-console.log("questionGenerator PICKED: " + questionGenerator);
+// var questionGenerator = [Math.floor(Math.random() * quizQuestions.length)];
+// console.log("questionGenerator PICKED: " + questionGenerator);
+// console.log(questionGenerator);
 
 
 //function to displays the selected question w the choices
 
-var outputQuestions = quizQuestions[questionGenerator];
-console.log(outputQuestions);
+// var outputQuestions = quizQuestions[questionGenerator];
+// console.log(outputQuestions);
 
 //funtion to check the questions answer based on a value collected from a radio group
 
